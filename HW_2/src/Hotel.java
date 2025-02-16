@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hotel{
+    private static final String title = "Hotel Meriolt \u2605\u2605\u2605\u2605";
     private final int roomNum; // номер комнаты
     private final RoomTypes roomType; // тип номеров
     private final int guestCapacity;  // количество мест
@@ -24,6 +25,9 @@ public class Hotel{
         this.guestCapacity = guestCapacity;
     }
 
+    public String getTitle(){
+        return title;
+    }
     public int getRoomNum() {
         return roomNum;
     }

@@ -8,6 +8,7 @@ public class Main {
     }
 
     public static void printAllRooms(){
+        System.out.println(Hotel.LISTOFROOMS.get(0).getTitle());
         for (int i = 0; i < Hotel.LISTOFROOMS.size(); i++) {
             System.out.println(Hotel.LISTOFROOMS.get(i).toString());
         }
