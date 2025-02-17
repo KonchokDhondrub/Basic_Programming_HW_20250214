@@ -5,7 +5,7 @@ public class Main {
         int selectedLang = 1; // ENG = 1; RUS = 2; // Have to Enum class create
 
         System.out.println("--- Print Selected Day ---");
-        DayOfWeek.getDayOfWeek(selectedDay, selectedLang);
+        System.out.println(DayOfWeek.getDayOfWeek2(selectedDay, selectedLang));
 
         System.out.println("\n--- Print All ---");
         printAllDays(selectedLang);
