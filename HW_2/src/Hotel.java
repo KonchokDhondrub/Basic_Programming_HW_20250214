@@ -19,7 +19,7 @@ public class Hotel{
             new Hotel(RoomTypes.PRESIDENT, 401, 4)
     ));
 
-    private Hotel(RoomTypes roomType, int roomNum, int guestCapacity) {
+    Hotel(RoomTypes roomType, int roomNum, int guestCapacity) {
         this.roomType = roomType;
         this.roomNum = roomNum;
         this.guestCapacity = guestCapacity;
