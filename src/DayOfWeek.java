@@ -40,24 +40,36 @@ public enum DayOfWeek{
     public abstract String printRus();
     public abstract String printEng();
 
-    String print(String selectedLang) {
-        switch (selectedLang){
-            case "rus" -> selectedLang = printRus();
-            case "eng" -> selectedLang = printEng();
-            default -> selectedLang = "Error selected language not found";
-        }
-        return selectedLang;
+    public int getDayNum() {
+        return dayNum;
     }
-    static String printError(String selectedLang){
-        switch (selectedLang){
-            case "rus" -> selectedLang = "Ошибка! Неверный ввод данных";
-            case "eng" -> selectedLang = "Error! Incorrect data input";
-            default -> selectedLang = "Error selected language not found";
-        }
-        return selectedLang;
+    public String getNameRus() {
+        return nameRus;
+    }
+    public String getNameEng() {
+        return nameEng;
     }
 
-    static void getDayOfWeek(int selectedDay, String selectedLang) {
+    String print(int selectedLang) {
+        String message;
+        switch (selectedLang){
+            case 1 -> message = getNameEng();
+            case 2 -> message = printRus();
+            default -> message = "Error selected language not found";
+        }
+        return message;
+    }
+    static String printError(int selectedLang){
+        String message;
+        switch (selectedLang){
+            case 1 -> message = "Error! Incorrect data input";
+            case 2 -> message = "Ошибка! Неверный ввод данных";
+            default -> message = "Error selected language not found";
+        }
+        return message;
+    }
+
+    static void getDayOfWeek(int selectedDay, int selectedLang) {
         String result;
             switch (selectedDay) {
                 case 1 -> result = MONDAY.print(selectedLang);
