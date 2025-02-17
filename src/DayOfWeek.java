@@ -1,44 +1,44 @@
 public enum DayOfWeek{
-    MONDAY(1, "Понедельник", "Monday"){
-        @Override public String printRus() { return MONDAY.nameRus; }
+    MONDAY(1, "Monday", "Понедельник"){
         @Override public String printEng() { return MONDAY.nameEng; }
+        @Override public String printRus() { return MONDAY.nameRus; }
     },
-    TUESDAY(2, "Вторник", "Tuesday") {
-        @Override public String printRus() { return TUESDAY.nameRus; }
+    TUESDAY(2, "Tuesday", "Вторник") {
         @Override public String printEng() { return TUESDAY.nameEng; }
+        @Override public String printRus() { return TUESDAY.nameRus; }
     },
-    WEDNESDAY(3, "Среда", "Wednesday") {
-        @Override public String printRus() { return WEDNESDAY.nameRus; }
+    WEDNESDAY(3, "Wednesday", "Среда") {
         @Override public String printEng() { return WEDNESDAY.nameEng; }
+        @Override public String printRus() { return WEDNESDAY.nameRus; }
     },
-    THURSDAY(4, "Четверг", "Thursday") {
-        @Override public String printRus() { return THURSDAY.nameRus; }
+    THURSDAY(4, "Thursday", "Четверг") {
         @Override public String printEng() { return THURSDAY.nameEng; }
+        @Override public String printRus() { return THURSDAY.nameRus; }
     },
-    FRIDAY(5, "Пятница", "Friday") {
-        @Override public String printRus() { return FRIDAY.nameRus; }
+    FRIDAY(5, "Friday", "Пятница") {
         @Override public String printEng() { return FRIDAY.nameEng; }
+        @Override public String printRus() { return FRIDAY.nameRus; }
     },
-    SATURDAY(6, "Суббота", "Saturday") {
-        @Override public String printRus() { return SATURDAY.nameRus; }
+    SATURDAY(6, "Saturday", "Суббота") {
         @Override public String printEng() { return SATURDAY.nameEng; }
+        @Override public String printRus() { return SATURDAY.nameRus; }
     },
-    SUNDAY(7, "Воскресенье", "Sunday") {
-        @Override public String printRus() { return SUNDAY.nameRus; }
+    SUNDAY(7, "Sunday", "Воскресенье") {
         @Override public String printEng() { return SUNDAY.nameEng; }
+        @Override public String printRus() { return SUNDAY.nameRus; }
     };
 
     private int dayNum;
     private String nameRus;
     private String nameEng;
 
-    DayOfWeek (int dayNum, String nameRus, String nameEng){
+    DayOfWeek (int dayNum, String nameEng, String nameRus){
         this.dayNum = dayNum;
         this.nameRus = nameRus;
         this.nameEng = nameEng;
     }
-    public abstract String printRus();
     public abstract String printEng();
+    public abstract String printRus();
 
     public int getDayNum() {
         return dayNum;
@@ -69,7 +69,7 @@ public enum DayOfWeek{
         return message;
     }
 
-    static void getDayOfWeek(int selectedDay, int selectedLang) {
+    static String getDayOfWeek(int selectedDay, int selectedLang) {
         String result;
             switch (selectedDay) {
                 case 1 -> result = MONDAY.print(selectedLang);
@@ -81,7 +81,20 @@ public enum DayOfWeek{
                 case 7 -> result = SUNDAY.print(selectedLang);
                 default -> result = DayOfWeek.printError(selectedLang);
             }
-        System.out.println(result);
+        return result;
+    }
+
+//    public static DayOfWeek getDayOfWeek1(int selectedDay, int selectedLang) {
+//        DayOfWeek[] dayOfWeeks = DayOfWeek.values();
+//        return (selectedDay>=1 && selectedDay<=7) ? values(selectedDay) : null;
+//    }
+    static String getDayOfWeek2(int selectedDay, int selectedLang) {
+        DayOfWeek[] dayOfWeeks = DayOfWeek.values();
+        for (DayOfWeek day : dayOfWeeks)
+            for (DayOfWeek dayOfWeek : dayOfWeeks) {
+                return day.dayNum + " " + day.print(selectedLang);
+            }
+        return null;
     }
 
     @Override
