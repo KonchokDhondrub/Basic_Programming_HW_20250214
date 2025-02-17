@@ -14,7 +14,7 @@ public class Main {
     public static void printAllDays(int selectedLang) {
         int count = 1;
         for (int i = 0; i < DayOfWeek.values().length; i++) {
-            DayOfWeek.getDayOfWeek(count++, selectedLang);
+            System.out.println(DayOfWeek.getDayOfWeek(count++, selectedLang));
         }
     }
 }
